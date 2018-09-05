@@ -17,5 +17,4 @@ graphite:
 
 spring:
   zipkin:
-    base:
-      url: http://localhost:8070
+    baseUrl: http://localhost:8070
