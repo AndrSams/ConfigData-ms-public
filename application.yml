@@ -14,3 +14,8 @@ graphite:
   port: 2003
   # no access to graphite
   enabled: false
+
+spring:
+  zipkin:
+    base:
+      url: http://localhost:8070
