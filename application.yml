@@ -1,8 +1,10 @@
 info: 
   component: ${spring.application.name} 
 
----
 
+---
+spring:
+  profiles: localhost
 eureka:
   client:
     serviceUrl:
@@ -18,3 +20,23 @@ graphite:
 spring:
   zipkin:
     baseUrl: http://localhost:8070
+    
+---
+spring:
+  profiles: localdocker
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://DOCKER:8010/eureka/
+
+graphite:
+  host: DOCKER
+  port: 2003
+  # no access to graphite
+  enabled: false
+
+spring:
+  zipkin:
+    baseUrl: http://DOCKER:8070
+
+
