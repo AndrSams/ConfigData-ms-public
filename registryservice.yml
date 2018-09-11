@@ -1,6 +1,9 @@
 server: 
   port: 8010
-  
+
+---
+spring:
+  profiles: localhost
 eureka: 
   instance: 
     hostname: localhost 
@@ -8,4 +11,16 @@ eureka:
     registerWithEureka: false 
     fetchRegistry: false 
     serviceUrl: 
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka 
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+      
+---
+spring:
+  profiles: localdocker
+eureka: 
+  instance: 
+    hostname: DOCKER 
+  client: 
+    registerWithEureka: false 
+    fetchRegistry: false 
+    serviceUrl: 
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
