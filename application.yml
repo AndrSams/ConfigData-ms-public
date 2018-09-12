@@ -1,3 +1,7 @@
+docker:
+  local:
+    ip: 192.168.99.100
+
 info: 
   component: ${spring.application.name}
   
@@ -12,14 +16,14 @@ graphite:
 spring:
   profiles: localdocker
   zipkin:
-    baseUrl: http://DOCKER:8070
+    baseUrl: http://${docker.local.ip}:8070
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://DOCKER:8010/eureka/
+      defaultZone: http://${docker.local.ip}:8010/eureka/
 
 graphite:
-  host: DOCKER
+  host: ${docker.local.ip}
 
 ---
 spring:
