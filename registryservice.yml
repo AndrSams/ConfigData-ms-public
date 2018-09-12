@@ -1,6 +1,11 @@
+
 server: 
   port: 8010
 
+docker:
+  local:
+    ip: http://192.168.99.100
+    
 eureka: 
   client: 
     registerWithEureka: false 
@@ -20,5 +25,5 @@ spring:
   profiles: localdocker
 eureka: 
   instance: 
-    hostname: DOCKER 
+    hostname: ${docker.local.ip} 
 
